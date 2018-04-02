@@ -1,44 +1,24 @@
-# vueAdmin-template
+# study网站的后台页面项目，用于视频的管理上传等功能
 
-> A minimal vue admin template with Element UI & axios & iconfont & permission control & lint
 
-**Live demo:** http://panjiachen.github.io/vueAdmin-template
 
-[中文文档](https://github.com/PanJiaChen/vueAdmin-template/blob/master/README-zh.md)
+关于下载
 
-## Build Setup
+```git
+  git clone https://git.coding.net/dyyao/study-admin.git
+```
+安装包依赖。
 
-``` bash
-
-# Clone project
-git clone https://github.com/PanJiaChen/vueAdmin-template.git
-
-# Install dependencies
-npm install
-
-# serve with hot reload at localhost:9528
-npm run dev
-
-# build for production with minification
-npm run build
-
-# build for production and view the bundle analyzer report
-npm run build --report
+```git
+  npm install
 ```
 
-## Demo
-![demo](https://github.com/PanJiaChen/PanJiaChen.github.io/blob/master/images/demo.gif)
+安装问题  node-sass安装不上
 
-## Extra
-If you want router permission && generate menu by user roles , you can use this branch [permission-control](https://github.com/PanJiaChen/vueAdmin-template/tree/permission-control)
+因为安装node-sass默认走的是国外的github路线。所以导致很多同学安装依赖不成功。可以使用以下方法更换binary的下载地址。
 
-## Related Project
- [vue-element-admin](https://github.com/PanJiaChen/vue-element-admin)
+```git
+npm config set sass_binary_site https://npm.taobao.org/mirrors/node-sass/
+```
 
- [electron-vue-admin](https://github.com/PanJiaChen/electron-vue-admin)
-
-
-## License
-[MIT](https://github.com/PanJiaChen/vueAdmin-template/blob/master/LICENSE) license.
-
-Copyright (c) 2017-present PanJiaChen
+之后再安装node-sass的都会默认走的淘宝的路线。
