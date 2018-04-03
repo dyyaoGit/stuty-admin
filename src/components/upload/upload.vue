@@ -35,7 +35,12 @@
             token: res.data
           }, data => {
             this.$axios.get("getDown", {key: data.key}).then(bkData => {
-              this.$emit("uploadSuccess", bkData)
+              let params = {
+                ...bkData,
+                key: data.key
+              }
+              console.log(params)
+              this.$emit("uploadSuccess", params)
             })
           }, percent => {
             this.percent = percent

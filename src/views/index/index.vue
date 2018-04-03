@@ -17,7 +17,7 @@
       <el-form-item label="是否付费">
         <el-switch v-model="formData.free"></el-switch>
       </el-form-item>
-      <el-form-item label="价格" v-if="!formData.free">
+      <el-form-item label="价格" v-if="formData.free">
         <el-input-number v-model="formData.price" :min="0"></el-input-number>
       </el-form-item>
       <el-form-item>
@@ -50,7 +50,8 @@
           img: '',
           free: false,
           price: 0,
-          author: ''
+          author: '',
+          key: ''
         },
         playerOptions: {
           language: 'zh',
@@ -68,6 +69,7 @@
       upSuccess(res) {
         this.formData.video = res.data;
         this.playerOptions.sources[0].src = res.data;
+        this.formData.key = res.key;
       },
       getPercent(percent) {
         this.percent = percent
