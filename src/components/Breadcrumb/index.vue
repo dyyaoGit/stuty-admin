@@ -30,7 +30,6 @@ export default {
       // if (first && first.name !== '首页') {
       //   matched = [{ path: '/index', meta: { title: '首页' }}].concat(matched)
       // }
-      console.log(this.levelList)
       this.levelList = matched
     }
   }

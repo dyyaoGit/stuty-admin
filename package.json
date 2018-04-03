@@ -1,9 +1,8 @@
 {
-  "name": "vue-admin-template",
+  "name": "study-admin",
   "version": "3.0.0",
-  "license": "MIT",
-  "description": "A vue admin template with Element UI & axios & iconfont & permission control & lint",
-  "author": "Pan <panfree23@gmail.com>",
+  "description": "a simple admin",
+  "author": "yao",
   "scripts": {
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
     "start": "npm run dev",
@@ -20,6 +19,7 @@
     "nprogress": "0.2.0",
     "vue": "2.5.10",
     "vue-router": "3.0.1",
+    "vue-video-player": "^5.0.2",
     "vuex": "3.0.1"
   },
   "devDependencies": {
