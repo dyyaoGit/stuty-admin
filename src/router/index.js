@@ -39,7 +39,25 @@ export const constantRouterMap = [
         meta: {
           title: "教学视频上传"
         },
-        name: '教学视频上传'
+        name: '添加视频',
+        hidden: true
+      },
+      {
+        path: 'list',
+        component: () => import("@/views/index/videoList"),
+        meta: {
+          title: '教学视频管理'
+        },
+        name: '视频管理'
+      },
+      {
+        path: 'edit',
+        component: () => import("@/views/index/index"),
+        meta: {
+          title: '编辑视频'
+        },
+        name: '编辑视频',
+        hidden: true
       },
       {
         path: 'test',
@@ -49,6 +67,80 @@ export const constantRouterMap = [
         },
         name: "测试页"
       }
+    ]
+  },
+  {
+    path: '/videosCategory/',
+    component: Layout,
+    redirect: "/videosCategory/add",
+    meta: {
+      title: '视频分类管理'
+    },
+    children: [
+      {
+        path: "add",
+        component: () => import("@/views/videosCategory/add"),
+        meta: {
+          title: "视频分类添加"
+        },
+        name: '视频分类'
+      },
+      {
+        path: 'list',
+        component: () => import("@/views/videosCategory/list"),
+        meta: {
+          title: "视频分类管理"
+        },
+        name: '视频分类管理',
+      },
+      {
+        path: 'edit',
+        component: () => import("@/views/videosCategory/add"),
+        meta: {
+          title: "编辑分类"
+        },
+        name: '编辑分类',
+        hidden: true
+      }
+    ]
+  },
+  {
+    path: '/slider/',
+    component: Layout,
+    name:'轮播图',
+    meta: {
+      title: '轮播图'
+    },
+    redirect: "/slider/list",
+    children: [
+      {
+        path: 'list',
+        component: () => import("@/views/sliderManage/list"),
+        meta: {
+          title: '轮播图管理'
+        },
+        name: '轮播图管理'
+      },
+      {
+        path: 'add',
+        component: () => import("@/views/sliderManage/add"),
+        meta: {
+          title: '添加轮播图'
+        },
+        name: '添加轮播图',
+        hidden: true
+      },
+      {
+        path: 'update',
+        component: () => import("@/views/sliderManage/add"),
+        meta: {
+          title: '编辑轮播图'
+        },
+        name: '编辑轮播图',
+        hidden: true
+      },
+
+
     ]
   },
 

@@ -24,9 +24,9 @@ let xhr = {
       })
     })
   },
-  qiniuGet(){
+  qiniuGet(isPublic=false){
     return new Promise((resolve,reject) => {
-      axios.get('api/getToken').then(res => {
+      axios.get('api/adminApi/getToken',{params: {isPublic}}).then(res => {
         resolve(res.data)
       }).catch(err => {
         reject(err)
