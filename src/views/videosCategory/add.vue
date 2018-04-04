@@ -11,8 +11,11 @@
           <el-input-number v-model="formData.sort" :min="1" :max="99999" ></el-input-number>
         </el-form-item>
         <el-form-item>
-          <el-button type="danger" size="mini" @click="add">
+          <el-button type="danger" size="mini" @click="add" v-if="$route.name!= '编辑分类'">
             保存
+          </el-button>
+          <el-button type="danger" size="mini" @click="update" v-else>
+            保存更改
           </el-button>
         </el-form-item>
       </el-form>
@@ -44,6 +47,17 @@
       getData() {
         this.$axios.get("getCategory", {id: this.$route.query.id}).then(res => {
           this.formData = res.data[0];
+        })
+      },
+      update() {
+        let params = {
+          id: this.$route.query.id,
+          ...this.formData
+        }
+        this.$axios.post("updateCategory",params).then(res => {
+          if(res.code == 200){
+            this.$Msg("success",{name: '视频分类管理'})
+          }
         })
       }
     },

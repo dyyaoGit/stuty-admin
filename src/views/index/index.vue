@@ -26,9 +26,13 @@
         <el-input-number v-model="formData.price" :min="0"></el-input-number>
       </el-form-item>
       <el-form-item>
-        <el-button type="danger" size="small" @click="save" :loading="sending">
+        <el-button type="danger" size="small" @click="update" :loading="sending" v-if="$route.name == '编辑视频'">
+          保存更改
+        </el-button>
+        <el-button type="danger" size="small" @click="save" :loading="sending" v-else>
           保存
         </el-button>
+
       </el-form-item>
     </el-form>
   </div>
@@ -121,6 +125,17 @@
             this.playerOptions.sources[0].src = backData.data;
             this.formData.video = backData.data;
           })
+        })
+      },
+      update() {
+        let params = {
+          id: this.$route.query.id,
+          ...this.formData
+        }
+        this.$axios.post("updateVideo", params).then(res => {
+          if(res.code == 200){
+            this.$Msg("success", {name: "视频管理"})
+          }
         })
       }
     },

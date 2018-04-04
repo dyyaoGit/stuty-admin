@@ -48,14 +48,19 @@
         })
       },
       update() {
-        this.$axios.post("updateSlider",this.formData).then(res => {
+        let params = {
+          id: this.$route.query.id,
+          ...this.formData
+        }
+        this.$axios.post("updateSlider",params).then(res => {
+          console.log(res)
           if(res.code == 200){
-            this.$Msg("", {name: "轮播图管理"})
+            this.$Msg("success", {name: "轮播图管理"})
           }
         })
       },
       getData() {
-        this.$axis.get("getSlider",{id: this.$route.query.id}).then(res => {
+        this.$axios.get("getSlider",{id: this.$route.query.id}).then(res => {
           if(res.code == 200){
             this.formData = res.data;
           }
